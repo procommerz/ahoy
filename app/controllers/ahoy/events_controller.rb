@@ -5,6 +5,8 @@ module Ahoy
         if params[:name]
           # legacy API
           [params]
+        elsif params['_json']
+          params['_json']  
         else
           begin
             ActiveSupport::JSON.decode(request.body.read)
